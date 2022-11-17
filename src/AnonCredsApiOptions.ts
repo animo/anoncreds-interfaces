@@ -1,6 +1,6 @@
 import { AnonCredsSchema } from "./models/vdr";
 
-// FIXME: we should update the name in the AnonCreds resource interface to include extra wording in the name to prevent name clashes.
+// FIXME: we should update the name in the AnonCreds registry interface to include extra wording in the name to prevent name clashes.
 export interface RegisterSchemaOptions {
   schema: AnonCredsSchema;
 

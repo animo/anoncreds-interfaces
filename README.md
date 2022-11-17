@@ -1,6 +1,6 @@
 # AnonCreds Interfaces
 
-This repository contains the interfaces for ledger agnostic AnonCreds in Aries Framework JavaScript. The interfaces are the foundation for the a new `@aries-framework/anoncreds` package, that will provide a module to work with AnonCreds in Aries Framework JavaScript. It doesn't add an actual implementation of AnonCreds, it just glues an AnonCreds implementation (e.g. indy-sdk or anoncreds-rs) with the different AnonCreds resources (IndySdkAnonCredsResource, IndyVdrAnonCredsResource, CheqdSdkAnonCredsResource, etc...).
+This repository contains the interfaces for ledger agnostic AnonCreds in Aries Framework JavaScript. The interfaces are the foundation for the a new `@aries-framework/anoncreds` package, that will provide a module to work with AnonCreds in Aries Framework JavaScript. It doesn't add an actual implementation of AnonCreds, it just glues an AnonCreds implementation (e.g. indy-sdk or anoncreds-rs) with the different AnonCreds registries (IndySdkAnonCredsRegistry, IndyVdrAnonCredsRegistry, CheqdSdkAnonCredsRegistry, etc...).
 
 The AnonCreds module will serve as an optional addon module to Aries Framework JavaScript. We can start by creating the AnonCreds module and extracting it from core with the indy-sdk, and later add the shared components in. The ledger module / api will be deprecated.
 
@@ -16,7 +16,7 @@ import { AnonCredsModule, AnonCredsCredentialFormat } from '@aries-framework/ano
 import { IndySdkAnonCredsIssuerService, IndySdkAnonCredsHolderService, IndySdkAnonCredsVerifierService } from '@aries-framework/indy-sdk'
 
 // NOTE: note sure if we want to bundle everything related to the cheqd sdk in one package as it can get bloated quite quickly (as it then needs to depend on anoncreds package). Can also be `@aries-framework/anoncreds-cheqd-sdk`
-import { CheqdSdkAnonCredsResource } from '@aries-framework/cheqd-sdk'
+import { CheqdSdkAnonCredsRegistry } from '@aries-framework/cheqd-sdk'
 
 
 const agent = new Agent({
@@ -29,8 +29,8 @@ const agent = new Agent({
       anonCredsHolderService: IndySdkAnonCredsHolderService,
       anonCredsVerifierService: IndySdkAnonCredsVerifierService,
 
-      // Register the different resources (ledgers) where we can resolve / register anoncreds resources from/to
-      anonCredsResources: [IndySdkAnonCredsResource, CheqdSdkAnonCredsResource],
+      // Register the different registries (ledgers) where we can resolve / register anoncreds objects from/to
+      AnonCredsRegistries: [IndySdkAnonCredsRegistry, CheqdSdkAnonCredsRegistry],
     }),
 
     // TODO: still need to figure out from which packages these services come

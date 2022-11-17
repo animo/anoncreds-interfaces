@@ -13,11 +13,11 @@ import {
   RegisterRevocationRegistryDefinitionReturn,
   RegisterSchemaOptions,
   RegisterSchemaReturn,
-} from "./AnonCredsResourceOptions";
+} from "./AnonCredsRegistryOptions";
 
 // This service can be registered multiple times in a single AFJ instance.
 // TODO: should all methods have interfaces as input for consistency?
-export interface AnonCredsResource {
+export interface AnonCredsRegistry {
   getSchema(schemaId: string): Promise<AnonCredsSchema>;
   registerSchema(options: RegisterSchemaOptions): Promise<RegisterSchemaReturn>;
 

@@ -30,6 +30,8 @@ export interface AnonCredsRevocationRegistryDefinition {
 }
 
 export interface AnonCredsRevocationList {
+  // TODO: this is a new property, but do we keep abbreviation or not?
+  revRegId: string;
   revocationList: number[];
   currentAccumulator: string;
   timestamp: number;

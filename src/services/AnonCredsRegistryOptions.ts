@@ -7,6 +7,9 @@ import {
 
 export interface RegisterSchemaOptions {
   schema: AnonCredsSchema;
+
+  // Identifier of issuer that will create the credential definition.
+  issuerId: string;
 }
 
 export interface RegisterSchemaReturn {
@@ -15,6 +18,9 @@ export interface RegisterSchemaReturn {
 
 export interface RegisterCredentialDefinitionOptions {
   credentialDefinition: AnonCredsCredentialDefinition;
+
+  // Identifier of issuer that will create the credential definition.
+  issuerId: string;
 }
 
 export interface RegisterCredentialDefinitionReturn {
